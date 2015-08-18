@@ -1,0 +1,87 @@
+$date
+	Mon Jun 29 22:18:27 2015
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_FullAdder $end
+$var wire 1 ! out_c $end
+$var wire 1 " out_s $end
+$var reg 1 # in_x $end
+$var reg 1 $ in_y $end
+$var reg 1 % in_z $end
+$scope module UUT $end
+$var wire 1 & in_x $end
+$var wire 1 ' in_y $end
+$var wire 1 ( in_z $end
+$var wire 1 ! out_C $end
+$var wire 1 " out_S $end
+$var wire 1 ) wr_c1 $end
+$var wire 1 * wr_c2 $end
+$var wire 1 + wr_s1 $end
+$scope module HA1 $end
+$var wire 1 ) C $end
+$var wire 1 + S $end
+$var wire 1 & x $end
+$var wire 1 ' y $end
+$upscope $end
+$scope module HA2 $end
+$var wire 1 * C $end
+$var wire 1 " S $end
+$var wire 1 + x $end
+$var wire 1 ( y $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+1"
+1*
+1+
+1%
+1(
+1#
+1&
+#20000
+0!
+0*
+0%
+0(
+1$
+1'
+0#
+0&
+#30000
+1!
+1)
+1#
+1&
+#40000
+0!
+0+
+0)
+1%
+1(
+0$
+0'
+0#
+0&
+#50000

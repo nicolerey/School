@@ -1,0 +1,74 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xcd9ba0 .scope module, "tb_FullAdder" "tb_FullAdder" 2 2;
+ .timescale -9 -12;
+v0xcef6a0_0 .var "in_x", 0 0;
+v0xcef770_0 .var "in_y", 0 0;
+v0xcef840_0 .var "in_z", 0 0;
+v0xcef910_0 .net "out_c", 0 0, L_0xcefe70; 1 drivers
+v0xcef990_0 .net "out_s", 0 0, L_0xcefc90; 1 drivers
+S_0xcd9c90 .scope module, "UUT" "FullAdder" 2 6, 3 2, S_0xcd9ba0;
+ .timescale -9 -12;
+L_0xcefe70 .functor OR 1, L_0xcefac0, L_0xcefd80, C4<0>, C4<0>;
+v0xcef080_0 .net "in_x", 0 0, v0xcef6a0_0; 1 drivers
+v0xcef150_0 .net "in_y", 0 0, v0xcef770_0; 1 drivers
+v0xcef200_0 .net "in_z", 0 0, v0xcef840_0; 1 drivers
+v0xcef2b0_0 .alias "out_C", 0 0, v0xcef910_0;
+v0xcef360_0 .alias "out_S", 0 0, v0xcef990_0;
+v0xcef410_0 .net "wr_c1", 0 0, L_0xcefac0; 1 drivers
+v0xcef4d0_0 .net "wr_c2", 0 0, L_0xcefd80; 1 drivers
+v0xcef580_0 .net "wr_s1", 0 0, L_0xcefa60; 1 drivers
+S_0xceecf0 .scope module, "HA1" "HalfAdder" 3 7, 4 2, S_0xcd9c90;
+ .timescale -9 -12;
+L_0xcefa60 .functor OR 1, v0xcef6a0_0, v0xcef770_0, C4<0>, C4<0>;
+L_0xcefac0 .functor AND 1, v0xcef6a0_0, v0xcef770_0, C4<1>, C4<1>;
+v0xceede0_0 .alias "C", 0 0, v0xcef410_0;
+v0xceeea0_0 .alias "S", 0 0, v0xcef580_0;
+v0xceef50_0 .alias "x", 0 0, v0xcef080_0;
+v0xceefd0_0 .alias "y", 0 0, v0xcef150_0;
+S_0xcddd90 .scope module, "HA2" "HalfAdder" 3 8, 4 2, S_0xcd9c90;
+ .timescale -9 -12;
+L_0xcefc90 .functor OR 1, L_0xcefa60, v0xcef840_0, C4<0>, C4<0>;
+L_0xcefd80 .functor AND 1, L_0xcefa60, v0xcef840_0, C4<1>, C4<1>;
+v0xcdde80_0 .alias "C", 0 0, v0xcef4d0_0;
+v0xceeb00_0 .alias "S", 0 0, v0xcef990_0;
+v0xceeba0_0 .alias "x", 0 0, v0xcef580_0;
+v0xceec40_0 .alias "y", 0 0, v0xcef200_0;
+    .scope S_0xcd9ba0;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "FullAdder.vpd";
+    %vpi_call 2 10 "$dumpvars";
+    %set/v v0xcef6a0_0, 0, 1;
+    %set/v v0xcef770_0, 0, 1;
+    %set/v v0xcef840_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0xcef6a0_0, 1, 1;
+    %set/v v0xcef770_0, 0, 1;
+    %set/v v0xcef840_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v0xcef6a0_0, 0, 1;
+    %set/v v0xcef770_0, 1, 1;
+    %set/v v0xcef840_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0xcef6a0_0, 1, 1;
+    %set/v v0xcef770_0, 1, 1;
+    %set/v v0xcef840_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v0xcef6a0_0, 0, 1;
+    %set/v v0xcef770_0, 0, 1;
+    %set/v v0xcef840_0, 1, 1;
+    %delay 10000, 0;
+    %vpi_call 2 23 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_FullAdder.v";
+    "FullAdder.v";
+    "../HalfAdder/HalfAdder.v";
